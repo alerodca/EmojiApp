@@ -64,8 +64,8 @@
 		753A43032A49E5A5003E7368 /* EmojiApp */ = {
 			isa = PBXGroup;
 			children = (
-				753A43192A49E625003E7368 /* UI */,
 				753A43182A49E619003E7368 /* App */,
+				753A43192A49E625003E7368 /* UI */,
 				753A430D2A49E5A6003E7368 /* Assets.xcassets */,
 				753A430F2A49E5A6003E7368 /* LaunchScreen.storyboard */,
 				753A43122A49E5A6003E7368 /* Info.plist */,
