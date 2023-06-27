@@ -11,12 +11,10 @@
 		753A43072A49E5A5003E7368 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A43062A49E5A5003E7368 /* SceneDelegate.swift */; };
 		753A430E2A49E5A6003E7368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753A430D2A49E5A6003E7368 /* Assets.xcassets */; };
 		753A43112A49E5A6003E7368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753A430F2A49E5A6003E7368 /* LaunchScreen.storyboard */; };
-		753A431F2A49E651003E7368 /* HeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A431D2A49E651003E7368 /* HeartViewController.swift */; };
-		753A43202A49E651003E7368 /* HeartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 753A431E2A49E651003E7368 /* HeartViewController.xib */; };
-		753A43232A49E65D003E7368 /* ShitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A43212A49E65D003E7368 /* ShitViewController.swift */; };
-		753A43242A49E65D003E7368 /* ShitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 753A43222A49E65D003E7368 /* ShitViewController.xib */; };
 		753A43272A49E66D003E7368 /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A43252A49E66D003E7368 /* PrincipalViewController.swift */; };
 		753A43282A49E66D003E7368 /* PrincipalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 753A43262A49E66D003E7368 /* PrincipalViewController.xib */; };
+		7599BF912A4B647C008EF451 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599BF8F2A4B647C008EF451 /* SecondViewController.swift */; };
+		7599BF922A4B647C008EF451 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7599BF902A4B647C008EF451 /* SecondViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +24,10 @@
 		753A430D2A49E5A6003E7368 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		753A43102A49E5A6003E7368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		753A43122A49E5A6003E7368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		753A431D2A49E651003E7368 /* HeartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartViewController.swift; sourceTree = "<group>"; };
-		753A431E2A49E651003E7368 /* HeartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeartViewController.xib; sourceTree = "<group>"; };
-		753A43212A49E65D003E7368 /* ShitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShitViewController.swift; sourceTree = "<group>"; };
-		753A43222A49E65D003E7368 /* ShitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShitViewController.xib; sourceTree = "<group>"; };
 		753A43252A49E66D003E7368 /* PrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		753A43262A49E66D003E7368 /* PrincipalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrincipalViewController.xib; sourceTree = "<group>"; };
+		7599BF8F2A4B647C008EF451 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		7599BF902A4B647C008EF451 /* SecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +81,7 @@
 		753A43192A49E625003E7368 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				753A431C2A49E63D003E7368 /* HeartViewController */,
-				753A431B2A49E634003E7368 /* ShitViewController */,
+				7599BF8E2A4B6469008EF451 /* SecondViewController */,
 				753A431A2A49E62A003E7368 /* PrincipalViewController */,
 			);
 			path = UI;
@@ -101,22 +96,13 @@
 			path = PrincipalViewController;
 			sourceTree = "<group>";
 		};
-		753A431B2A49E634003E7368 /* ShitViewController */ = {
+		7599BF8E2A4B6469008EF451 /* SecondViewController */ = {
 			isa = PBXGroup;
 			children = (
-				753A43212A49E65D003E7368 /* ShitViewController.swift */,
-				753A43222A49E65D003E7368 /* ShitViewController.xib */,
+				7599BF8F2A4B647C008EF451 /* SecondViewController.swift */,
+				7599BF902A4B647C008EF451 /* SecondViewController.xib */,
 			);
-			path = ShitViewController;
-			sourceTree = "<group>";
-		};
-		753A431C2A49E63D003E7368 /* HeartViewController */ = {
-			isa = PBXGroup;
-			children = (
-				753A431D2A49E651003E7368 /* HeartViewController.swift */,
-				753A431E2A49E651003E7368 /* HeartViewController.xib */,
-			);
-			path = HeartViewController;
+			path = SecondViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,9 +163,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				753A43202A49E651003E7368 /* HeartViewController.xib in Resources */,
 				753A43112A49E5A6003E7368 /* LaunchScreen.storyboard in Resources */,
-				753A43242A49E65D003E7368 /* ShitViewController.xib in Resources */,
+				7599BF922A4B647C008EF451 /* SecondViewController.xib in Resources */,
 				753A430E2A49E5A6003E7368 /* Assets.xcassets in Resources */,
 				753A43282A49E66D003E7368 /* PrincipalViewController.xib in Resources */,
 			);
@@ -192,10 +177,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				753A431F2A49E651003E7368 /* HeartViewController.swift in Sources */,
+				7599BF912A4B647C008EF451 /* SecondViewController.swift in Sources */,
 				753A43052A49E5A5003E7368 /* AppDelegate.swift in Sources */,
 				753A43272A49E66D003E7368 /* PrincipalViewController.swift in Sources */,
-				753A43232A49E65D003E7368 /* ShitViewController.swift in Sources */,
 				753A43072A49E5A5003E7368 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

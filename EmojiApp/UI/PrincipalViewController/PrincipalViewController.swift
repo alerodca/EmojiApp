@@ -14,33 +14,35 @@ class PrincipalViewController: UIViewController {
     @IBOutlet weak var labelEmoji: UILabel!
     @IBOutlet weak var clearCacheButton: UIButton!
     
+    var emoji = ["💩","❤️"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Initial Checks
         labelEmoji.isUserInteractionEnabled = true
 
-        let contenidoTextfield = UserDefaults.standard.value(forKey: "ContentOfTheTextfield")
+        // Initial Actions
+        let contentTextfield = UserDefaults.standard.value(forKey: "ContentOfTheTextfield")
         
-        if let cadenacontexto = contenidoTextfield as? String {
-            textfield.text = cadenacontexto
+        if let stringContent = contentTextfield as? String {
+            textfield.text = stringContent
         }
         
-        let comprobarContenido = CheckContent(content: contenidoTextfield as? String)
+        let checkContent = textfield.text
         
-        if comprobarContenido {
-            labelEmoji.text = "❤️"
+        if checkContent != "" {
+            labelEmoji.text = "\(emoji[1])"
         } else {
-            labelEmoji.text = "💩"
+            labelEmoji.text = "\(emoji[0])"
         }
-        
         
         instructions.text = "❤️ or 💩"
         textfield.placeholder = "Introduzca algo para ❤️ o nada para 💩"
         clearCacheButton.setTitle("Clear Cache", for: .normal)
         
         // GestureResponder
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(etiquetaTocada))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TouchLabel))
         labelEmoji.addGestureRecognizer(tapGesture)
         
         // Delegate Textfield
@@ -48,28 +50,23 @@ class PrincipalViewController: UIViewController {
     }
 
     // Method that reply GestureResponder
-    @objc func etiquetaTocada() {
+    @objc func TouchLabel() {
         let content = textfield.text
+        let secondVC = SecondViewController()
+
+        if content == "" {
+            secondVC.emoji = "\(emoji[0])"
+            self.present(secondVC, animated: true, completion: nil)
+        } else {
+            secondVC.emoji = "\(emoji[1])"
+            self.present(secondVC, animated: true, completion: nil)
+        }
         
-        if content == "" {
-            navigationController?.pushViewController(ShitViewController(), animated: true)
-        } else {
-            navigationController?.pushViewController(HeartViewController(), animated: true)
-        }
-    }
-    
-    // Function that check the content of the textfield
-    func CheckContent(content: String?) -> Bool {
-        if content == "" {
-            return false
-        } else {
-            return true
-        }
     }
     
     @IBAction func ClearCacheAction(_ sender: Any) {
-        UserDefaults.standard.set("", forKey: "ContentOfTheTextfield")
         textfield.text = ""
+        UserDefaults.standard.removeObject(forKey: "ContentOfTheTextfield") 
     }
     
 }
@@ -83,12 +80,12 @@ extension PrincipalViewController: UITextFieldDelegate {
         
         UserDefaults.standard.set(content, forKey: "ContentOfTheTextfield")
         
-        let callFunction = CheckContent(content: content)
+        let checkContent = textfield.text
         
-        if callFunction {
-            labelEmoji.text = "❤️"
+        if checkContent != "" {
+            labelEmoji.text = "\(emoji[1])"
         } else {
-            labelEmoji.text = "💩"
+            labelEmoji.text = "\(emoji[0])"
         }
     }
 }
