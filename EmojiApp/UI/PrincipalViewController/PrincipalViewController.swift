@@ -23,18 +23,14 @@ class PrincipalViewController: UIViewController {
         labelEmoji.isUserInteractionEnabled = true
 
         // Initial Actions
-        let contentTextfield = UserDefaults.standard.value(forKey: "ContentOfTheTextfield")
-        
-        if let stringContent = contentTextfield as? String {
+        if let stringContent = UserDefaults.standard.value(forKey: "ContentOfTheTextfield") as? String {
             textfield.text = stringContent
         }
         
-        let checkContent = textfield.text
-        
-        if checkContent != "" {
-            labelEmoji.text = "\(emoji[1])"
-        } else {
+        if let content = textfield.text, content == "" {
             labelEmoji.text = "\(emoji[0])"
+        } else {
+            labelEmoji.text = "\(emoji[1])"
         }
         
         instructions.text = "❤️ or 💩"
@@ -42,7 +38,7 @@ class PrincipalViewController: UIViewController {
         clearCacheButton.setTitle("Clear Cache", for: .normal)
         
         // GestureResponder
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(TouchLabel))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchLabel))
         labelEmoji.addGestureRecognizer(tapGesture)
         
         // Delegate Textfield
@@ -50,18 +46,16 @@ class PrincipalViewController: UIViewController {
     }
 
     // Method that reply GestureResponder
-    @objc func TouchLabel() {
-        let content = textfield.text
+    @objc func touchLabel() {
         let secondVC = SecondViewController()
-
-        if content == "" {
+        
+        if let content = textfield.text, content == "" {
             secondVC.emoji = "\(emoji[0])"
-            self.present(secondVC, animated: true, completion: nil)
         } else {
             secondVC.emoji = "\(emoji[1])"
-            self.present(secondVC, animated: true, completion: nil)
         }
         
+        self.present(secondVC, animated: true, completion: nil)
     }
     
     @IBAction func ClearCacheAction(_ sender: Any) {
@@ -75,17 +69,12 @@ class PrincipalViewController: UIViewController {
 extension PrincipalViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        UserDefaults.standard.set(textField.text, forKey: "ContentOfTheTextfield")
         
-        let content = textField.text
-        
-        UserDefaults.standard.set(content, forKey: "ContentOfTheTextfield")
-        
-        let checkContent = textfield.text
-        
-        if checkContent != "" {
-            labelEmoji.text = "\(emoji[1])"
-        } else {
+        if let content = textfield.text, content == "" {
             labelEmoji.text = "\(emoji[0])"
+        } else {
+            labelEmoji.text = "\(emoji[1])"
         }
     }
 }
