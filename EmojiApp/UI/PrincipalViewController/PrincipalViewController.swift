@@ -27,11 +27,7 @@ class PrincipalViewController: UIViewController {
             textfield.text = stringContent
         }
         
-        if let content = textfield.text, content == "" {
-            labelEmoji.text = "\(emoji[0])"
-        } else {
-            labelEmoji.text = "\(emoji[1])"
-        }
+        setLabel()
         
         instructions.text = "❤️ or 💩"
         textfield.placeholder = "Introduzca algo para ❤️ o nada para 💩"
@@ -45,16 +41,23 @@ class PrincipalViewController: UIViewController {
         textfield.delegate = self
     }
 
+    // Method that save the set of label
+    private func setLabel() {
+        
+        if let content = textfield.text, content == "" {
+                labelEmoji.text = "\(emoji[0])"
+            } else {
+                labelEmoji.text = "\(emoji[1])"
+            }
+        
+    }
+    
+    
     // Method that reply GestureResponder
     @objc func touchLabel() {
         let secondVC = SecondViewController()
-        
-        if let content = textfield.text, content == "" {
-            secondVC.emoji = "\(emoji[0])"
-        } else {
-            secondVC.emoji = "\(emoji[1])"
-        }
-        
+        setLabel()
+        secondVC.emoji = labelEmoji.text
         self.present(secondVC, animated: true, completion: nil)
     }
     
@@ -70,11 +73,6 @@ extension PrincipalViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         UserDefaults.standard.set(textField.text, forKey: "ContentOfTheTextfield")
-        
-        if let content = textfield.text, content == "" {
-            labelEmoji.text = "\(emoji[0])"
-        } else {
-            labelEmoji.text = "\(emoji[1])"
-        }
+        setLabel()
     }
 }
